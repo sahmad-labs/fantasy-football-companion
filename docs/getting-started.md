@@ -14,8 +14,4 @@ This covers the **N** (Node) and **E** (Express) part of MERN.
 That’s a started backend: Node + Express.
 
 ## Next small steps (when you’re ready)
-
-- **MongoDB** — Create a free Atlas cluster, copy the connection string, add `mongoose`, and connect from `index.js`.
-- **React** — In another folder: `npm create vite@latest client -- --template react`, then open the dev server URL.
-
-**Summary:** The smallest possible first step is **one Node project with Express serving one route**. Mongo and React come after, as separate small steps.
+- See [Next Steps](https://github.com/sahmad-labs/fantasy-football-companion/blob/bp/step-2/docs/express-next-steps.md)
