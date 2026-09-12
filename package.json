@@ -4,7 +4,8 @@
   "description": "A small web app for building a fantasy team from a list of players and tracking their stats across a season.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
