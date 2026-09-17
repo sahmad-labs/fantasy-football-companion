@@ -1,20 +1,16 @@
 {
-  "name": "fantasy-football-companion",
+  "name": "fantasy-football",
   "version": "1.0.0",
-  "description": "A small web app for building a fantasy team from a list of players and tracking their stats across a season.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sahmad-labs/fantasy-football-companion.git"
-  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "express": "^5.1.0",
-    "mongodb": "^7.6.0",
-    "mongoose": "^9.3.3"
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
   }
 }

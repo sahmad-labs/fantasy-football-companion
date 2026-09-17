@@ -46,6 +46,18 @@ app.use((req, res) => {
   });
 });
 
+const mongoose = require('mongoose');
+
+const playerSchema = new mongoose.Schema({
+  name: String,
+  position: String,
+  team: String,
+  jerseyNumber: Number,
+  fantasyPoints: Number
+});
+
+const Player = mongoose.model('Player', playerSchema);
+
 // Start the Express server.
 app.listen(3000, () => {
   console.log(`Server running on http://localhost:3000`);
