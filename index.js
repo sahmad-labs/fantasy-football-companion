@@ -1,4 +1,6 @@
 const express = require('express');
+//const mongoose = require('mongoose');
+const Player = require('./models/Player');
 
 const app = express();
 const PORT = 3000;
@@ -17,11 +19,16 @@ app.get('/health', (req, res) => {
 app.get('/api/players', (req, res) => {
   const players = [
     {
-      name: 'Patrick Mahomes',
-      position: 'QB',
-      team: 'Chiefs',
-      points: 320
-    },
+      name: "Patrick Mahomes",
+      position: "QB",
+      nflTeam: "Kansas City Chiefs",
+      jerseyNumber: 15,
+      age: 31,
+      experience: 10,
+      fantasy: {
+      fantasyPoints: 25.6
+  }
+},
     {
       name: 'CeeDee Lamb',
       position: 'WR',
@@ -55,8 +62,6 @@ const playerSchema = new mongoose.Schema({
   jerseyNumber: Number,
   fantasyPoints: Number
 });
-
-const Player = mongoose.model('Player', playerSchema);
 
 // Start the Express server.
 app.listen(3000, () => {
