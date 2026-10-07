@@ -21,6 +21,7 @@ app.get('/api/players', async (req, res) => {
   res.status(200).json(players);
 });
 
+
 // 404 fallback: keep this AFTER all valid routes.
 app.use((req, res) => {
   res.status(404).json({
@@ -29,13 +30,14 @@ app.use((req, res) => {
 });
 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, { dbName: 'fantasyFootball' })
   .then(() => {
     console.log("MongoDB connected");
+    console.log(Player.db.name, Player.collection.name);
   })
-  .catch(() => {
-    console.log("MongoDB connection failed");
-  });
+  .catch((error) => {
+  console.error("MongoDB connection failed:", error.message);
+});
 
 const playerSchema = new mongoose.Schema({
   name: String,
