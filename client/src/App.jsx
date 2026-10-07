@@ -1,11 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import PlayerCard from './PlayerCard.jsx'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [players, setPlayers] = useState([])
+
+  useEffect(() => {
+    fetch('/api/players')
+      .then(response => response.json())
+      .then(data => {
+        setPlayers(data)
+      })
+      .catch(error => console.error('Could not load players', error))
+  }, [])
 
   return (
     <>
@@ -16,7 +27,16 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Get started</h1>
+          <h1>Fantasy Football Companion</h1>
+          <p>Players loaded: {players.length}</p>
+          <PlayerCard name={players[0]?.name} />
+          <ul>
+            {players.map(player => (
+              <li key={player._id}>
+                {player.name}: {player.position}: {player.fantasy.fantasyPoints}: {player.nflTeam}
+              </li>
+            ))}
+          </ul>
           <p>
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
