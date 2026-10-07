@@ -29,11 +29,18 @@ function App() {
         <div>
           <h1>Fantasy Football Companion</h1>
           <p>Players loaded: {players.length}</p>
-          <PlayerCard name={players[0]?.name} />
+          <PlayerCard
+            name={players[0]?.name}
+            team={players[0]?.nflTeam}
+            position={players[0]?.position}
+            age={players[0]?.age}
+            experience={players[0]?.experience}
+            points={players[0]?.fantasy?.fantasyPoints}
+          />
           <ul>
             {players.map(player => (
               <li key={player._id}>
-                {player.name}: {player.position}: {player.fantasy.fantasyPoints}: {player.nflTeam}
+                <PlayerCard name={player.name} team={player.nflTeam} position={player.position} experience={player.experience} points={player.fantasy?.fantasyPoints}/>
               </li>
             ))}
           </ul>
